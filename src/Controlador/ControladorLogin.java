@@ -8,28 +8,24 @@ import DAO.DAOLogin;
 
 /**
  *
- * @author AncyElMasPro
+ * @author Angel
  * 
- * clase publica ControladorLogin que implementa la interface DAOLogin
  */
 public class ControladorLogin implements DAOLogin{
     
-    private static ControladorLogin controladorLogin; //se crea una varibale estatica controladorLogin de tipo clase ControladorLogin
-    private String usuario; //variable cadena de texto usuario
-    private String contrasenia; //variable cadena de texto contrasenia 
+    private static ControladorLogin controladorLogin; //controladorLogin es una variable estatica que usa metodos de la clase ControladorLogin 
+    private String usuario; //usuario
+    private String contrasenia; // contraseña del usuario  
     
     
-    /**
-     * metodo privado para hacer implementaciones de la clase ControladorLogin()
-     */
-    private ControladorLogin() {
+   
+    private ControladorLogin() { //metodo que sirve para implementar componentes en la clase ControladorLogin()
         
     }
     
     /**
-     * metodo singleton que sirve para hacer una sola instancia de la clase 
-     * condicional si controladorLogin es vacio se crea una nueva instancia 
-     * @return devuelve la instancia controladorLogin
+     * se usa el singleton nuevamente para hacer una sola instancia cuando el controladorLogin sea vacio
+     * @return y devuelve controladorLogin
      */
     public static ControladorLogin getControladorLogin(){
         if(controladorLogin==null)
@@ -39,10 +35,10 @@ public class ControladorLogin implements DAOLogin{
     }
     
     /**
-     * metodo que permite verificar si los usuarios son correctos
-     * @param usuario   usuario de los datos guardados
-     * @param contrasenia contraseña de los datos guardados
-     * @return falso si  no es correcto, true si es correcto el usuario ingresado 
+     * con este metodo booleano se puede ver si los usuarios son correctos o no
+     * @param usuario el usuario dado
+     * @param contrasenia contraseña dada
+     * @return se devuelve estado como booleano, verdadero si es correcto y falso si no lo es
      */
     @Override
     public boolean VerificarUsuarios(String usuario, String contrasenia) {
@@ -56,7 +52,7 @@ public class ControladorLogin implements DAOLogin{
 
     @Override
     /**
-     * metodo que da el usuario ingresado y lo devuelve
+     * este metodo publico sirve para mostrar el usuario dado
      */
     public String getUsuario() {
         return this.usuario;
@@ -64,9 +60,9 @@ public class ControladorLogin implements DAOLogin{
 
     @Override
     /**
-     * metodo que permite cambiar la contraseña 
-     * this.contrasenia = contrasenia la cambia por una nueva 
-     * devuelve el estado, solo va a devolver estado true
+     * el metodo booleano puede cambiar la contraseña
+     * @param contrasenia es la nueva contraseña que el usuario dio
+     * devuelve estado en true
      */
     public boolean CambiarContrasenia(String contrasenia) {
         boolean estado=true;        
